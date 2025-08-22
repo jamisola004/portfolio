@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaymar's Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS animation library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <!-- Custom CSS -->
+  <style>
+    /* =========================
+       🌙 DARK MODE VARIABLES
+       ========================= */
+    html.dark {
+      --background: 222 47% 4%;
+      --foreground: 213 31% 91%;
+      --card: 222 47% 8%;
+      --primary: 250 65% 65%;
+      --primary-foreground: 213 31% 91%;
+      --border: 217 33% 20%;
+    }
+
+    /* Light Mode Variables */
+    :root {
+      --background: 210 40% 98%;
+      --foreground: 222 47% 11%;
+      --card: 0 0% 100%;
+      --primary: 250 47% 60%;
+      --primary-foreground: 210 40% 98%;
+      --border: 214 32% 91%;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      line-height: 1.5;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
+    }
+
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+    }
+
+    /* Skill Bars */
+    .skill-bar-container {
+      width: 100%;
+      background-color: #ddd;
+      height: 12px;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .skill-bar {
+      height: 12px;
+      width: 0;
+      border-radius: 9999px;
+      transition: width 1.5s ease-in-out, background-color 1.5s ease-in-out;
+    }
+  </style>
+</head>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <div id="root">
+    <div class="min-h-screen flex flex-col">
+
+      <!-- HEADER -->
+      <header class="flex justify-between items-center p-6 bg-opacity-50 relative z-20">
+        <h1 class="text-2xl font-bold">My Portfolio</h1>
+        <nav class="hidden md:flex space-x-6 font-medium">
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#experience-skills">Skills</a>
+          <a href="#service">Services</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden">☰</button>
+      </header>
+
+      <!-- Mobile Nav -->
+      <nav id="mobile-menu" class="hidden flex-col space-y-4 bg-white p-6 md:hidden">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience-skills">Skills</a>
+        <a href="#service">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- HERO -->
+      <section class="relative w-full py-20 px-5" data-aos="zoom-in-up" id="hero">
+        <div class="grid lg:grid-cols-2 gap-10 xl:gap-14 max-w-screen-xl mx-auto">
+          <div class="lg:py-6 flex flex-col justify-center">
+            <h2 class="text-5xl font-bold mb-4">Hi, I'm Jaymar 👋</h2>
+            <p class="text-lg opacity-80">
+              A passionate student in <strong>Computer Science</strong>. I love building software, solving problems, 
+              and designing responsive web applications.
+            </p>
+            <button id="dark-toggle" class="mt-6 px-6 py-3 rounded-lg bg-blue-500 text-white hover:opacity-90 transition">Toggle Dark Mode</button>
+          </div>
+          <div class="flex items-center justify-center">
+            <img src="profile.jpg" alt="Profile" class="rounded-2xl shadow-lg w-56 h-56 object-cover">
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="py-20 px-5" id="about">
+        <div class="max-w-screen-lg mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-6">About Me</h2>
+          <p class="text-lg opacity-80">
+            I am Jaymar Jamisola, currently taking <strong>Bachelor of Science in Computer Science</strong>. 
+            I have a strong passion for software development, algorithms, and building innovative applications. 
+            My goal is to continuously improve my skills and contribute to the tech industry with creative solutions.
+          </p>
+        </div>
+      </section>
+
+      <!-- EDUCATIONAL BACKGROUND -->
+      <section id="education" class="mt-20 px-6 sm:px-12 max-w-screen-lg mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          <span class="border-b-4 border-blue-500 pb-2">Educational Background</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- College -->
+          <div class="flex items-start space-x-4 bg-white p-6 rounded-2xl shadow-lg">
+            <div class="p-3 bg-blue-500 text-white rounded-full">
+              🎓
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Bachelor of Science in Computer Science</h3>
+              <p class="text-gray-600">XYZ University, 2021 - Present</p>
+            </div>
+          </div>
+
+          <!-- Senior High -->
+          <div class="flex items-start space-x-4 bg-white p-6 rounded-2xl shadow-lg">
+            <div class="p-3 bg-green-500 text-white rounded-full">
+              🎓
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold">Senior High School (STEM Strand)</h3>
+              <p class="text-gray-600">ABC Senior High, 2019 - 2021</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="mt-18 relative" id="experience-skills">
+        <div class="max-w-screen-xl mx-auto px-6 lg:px-12 py-20">
+          <h2 class="text-3xl font-bold mb-12 text-center">Experience & Skills</h2>
+          <div class="grid md:grid-cols-2 gap-10">
+
+            <div class="edu-card bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex justify-between mb-2">
+                <h3 class="font-semibold">HTML & CSS</h3>
+                <span class="skill-percentage">0%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" data-percentage="90"></div>
+              </div>
+            </div>
+
+            <div class="edu-card bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex justify-between mb-2">
+                <h3 class="font-semibold">JavaScript</h3>
+                <span class="skill-percentage">0%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" data-percentage="80"></div>
+              </div>
+            </div>
+
+            <div class="edu-card bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex justify-between mb-2">
+                <h3 class="font-semibold">Python</h3>
+                <span class="skill-percentage">0%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" data-percentage="75"></div>
+              </div>
+            </div>
+
+            <div class="edu-card bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex justify-between mb-2">
+                <h3 class="font-semibold">Java</h3>
+                <span class="skill-percentage">0%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" data-percentage="70"></div>
+              </div>
+            </div>
+
+            <div class="edu-card bg-white p-6 rounded-2xl shadow-lg">
+              <div class="flex justify-between mb-2">
+                <h3 class="font-semibold">Database (MySQL)</h3>
+                <span class="skill-percentage">0%</span>
+              </div>
+              <div class="skill-bar-container">
+                <div class="skill-bar" data-percentage="85"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="py-20 px-5" id="service">
+        <div class="max-w-screen-xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-6">Services</h2>
+          <p class="mb-6">Here’s what I can do for you:</p>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="p-6 rounded-xl shadow bg-white">
+              <h3 class="text-xl font-semibold mb-3">Web Design & Development</h3>
+              <p>Responsive portfolio websites, landing pages, and custom applications.</p>
+            </div>
+            <div class="p-6 rounded-xl shadow bg-white">
+              <h3 class="text-xl font-semibold mb-3">Software Solutions</h3>
+              <p>Building efficient and scalable applications with modern technologies.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="py-20 px-5 bg-white" id="contact">
+        <div class="max-w-screen-md mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+          <p class="mb-6">Interested in collaborating? Reach out below!</p>
+          <form class="flex flex-col space-y-4">
+            <input type="text" placeholder="Your Name" class="p-3 rounded-lg border border-gray-300">
+            <input type="email" placeholder="Your Email" class="p-3 rounded-lg border border-gray-300">
+            <textarea placeholder="Your Message" rows="4" class="p-3 rounded-lg border border-gray-300"></textarea>
+            <button class="px-6 py-3 rounded-lg bg-blue-500 text-white hover:opacity-90 transition">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="mt-8 border-t border-gray-300 text-center py-6">
+        © 2025 Jaymar's Portfolio
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // DARK MODE TOGGLE
+    const toggle = document.getElementById("dark-toggle");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+
+    // SKILL BARS
+    document.addEventListener("DOMContentLoaded", () => {
+      const skillBars = document.querySelectorAll(".skill-bar");
+      skillBars.forEach(bar => {
+        const percentage = parseInt(bar.getAttribute("data-percentage"));
+
+        // Animate width
+        setTimeout(() => { 
+          bar.style.width = percentage + "%";
+
+          // Set color
+          if (percentage <= 40) bar.style.backgroundColor = "#ef4444";
+          else if (percentage <= 70) bar.style.backgroundColor = "#facc15";
+          else bar.style.backgroundColor = "#22c55e";
+        }, 100);
+
+        // Animate number
+        const percentageSpan = bar.parentElement.previousElementSibling.querySelector(".skill-percentage");
+        let current = 0;
+        const timer = setInterval(() => {
+          if (current >= percentage) clearInterval(timer);
+          else {
+            current++;
+            percentageSpan.textContent = current + "%";
+          }
+        }, 15);
+      });
+    });
+    
+  </script>
+  
+</body>
+</html>

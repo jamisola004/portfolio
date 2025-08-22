@@ -1,0 +1,279 @@
+/* =========================
+   🌙 DARK MODE VARIABLES
+   ========================= */
+html.dark {
+  --background: 222 47% 4%;
+  --foreground: 213 31% 91%;
+  --card: 222 47% 8%;
+  --primary: 250 65% 65%;
+  --primary-foreground: 213 31% 91%;
+  --border: 217 33% 20%;
+}
+
+/* Light Mode Variables */
+:root {
+    --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --primary: 250 47% 60%;
+  --primary-foreground: 210 40% 98%;
+  --border: 214 32% 91%;
+
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-card: hsl(var(--card));
+
+  /* Fonts & Layout */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Colors */
+  --color-white: #fff;
+
+  /* Typography sizes */
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /* Radius & Effects */
+  --radius-lg: .5rem;
+  --radius-xl: .75rem;
+  --radius-3xl: 1.5rem;
+
+  --ease-in-out: cubic-bezier(.4,0,.2,1);
+  --default-transition-duration: .15s;
+}
+
+/* =========================
+   GLOBAL STYLES
+   ========================= */
+html {
+  scroll-behavior: smooth;
+  line-height: 1.5;
+  font-family: var(--font-sans);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Hero Section */
+#hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-foreground)));
+  color: white;
+  border-radius: var(--radius-3xl);
+  margin-bottom: 3rem;
+}
+
+#hero h1 {
+  font-size: var(--text-5xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+}
+
+#hero p {
+  font-size: var(--text-xl);
+  opacity: 0.9;
+}
+
+/* Hero Image (Circular Professional Look) */
+#hero img {
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border: 5px solid hsl(var(--primary-foreground));
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s var(--ease-in-out);
+}
+
+#hero img:hover {
+  transform: scale(1.05);
+}
+
+/* Section Styling */
+section {
+  margin-bottom: 4rem;
+}
+
+section h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: hsl(var(--primary));
+  margin-top: 0.5rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Card Styling */
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background: hsl(var(--primary) / 0.85);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #hero {
+    padding: 3rem 1rem;
+  }
+
+  #hero h1 {
+    font-size: var(--text-3xl);
+  }
+
+  #hero img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}
+
+/* =========================
+   SKILL BARS
+   ========================= */
+.skill-bar-container {
+  width: 100%;
+  background-color: #ddd;
+  height: 12px;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 12px;
+  width: 0;
+  border-radius: 9999px;
+  transition: width 1.5s ease-in-out, background-color 1.5s ease-in-out;
+}
+
+/* =========================
+   PROFESSIONAL BACKGROUND
+   ========================= */
+body {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light mode gradient */
+  transition: background 0.3s ease;
+}
+
+/* Cards Glow Effect */
+.edu-card, .card {
+  background-color: #ffffff; /* Light mode card */
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 0 15px rgba(99, 102, 241, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.edu-card:hover, .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15), 0 0 25px rgba(99, 102, 241, 0.35);
+}
+
+/* =========================
+ /* =========================
+   DARK MODE PROFESSIONAL
+   ========================= */
+html.dark body {
+  background: linear-gradient(135deg, #111111, #1c1c1c);
+  color: #f5f5f5; /* default text color for dark mode */
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark p,
+html.dark span,
+html.dark a,
+html.dark li {
+  color: #f5f5f5 !important; /* override Tailwind if needed */
+}
+
+html.dark .edu-card,
+html.dark .card {
+  background-color: #222222; /* dark card background */
+  color: #f5f5f5; /* text inside card */
+  box-shadow: 0 4px 20px rgba(255,255,255,0.05), 0 0 15px rgba(99,102,241,0.2);
+}
+
+html.dark .edu-card:hover,
+html.dark .card:hover {
+  box-shadow: 0 8px 30px rgba(255,255,255,0.1), 0 0 25px rgba(99,102,241,0.35);
+}
+
+html.dark input,
+html.dark textarea,
+html.dark button {
+  background-color: #333333;
+  color: #f5f5f5;
+  border-color: #555555;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #cccccc;
+}
