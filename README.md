@@ -1,4 +1,5 @@
 # jamisola004portfolio
-Portfolio website
+My Personal Portfolio Website
 
 ![Preview](preview.png)
+
