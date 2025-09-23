@@ -8,4 +8,4 @@ It showcases my projects, skills, and experiences.
 ---
 
 ## 📷 Preview
-![Portfolio Screenshot](assets/img/preview.png)
+![Portfolio Screenshot](IMG_3528.png)
